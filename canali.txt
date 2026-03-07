@@ -16,7 +16,7 @@ RaiPremium.it
 Cielo.it
 TV2000.it
 La7Cinema.it
-La5.it
+LA5.it
 QVC.it
 Cine34.it
 Focus.it
@@ -43,4 +43,5 @@ R101TV.it
 DeejayTV.it
 RadioItaliaTV.it
 Sportitalia.it
+
 
