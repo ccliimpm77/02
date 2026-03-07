@@ -1,0 +1,36 @@
+name: Aggiornamento Giornaliero EPG
+
+on:
+  schedule:
+    # Esegue alle 03:00 UTC ogni giorno
+    - cron: '0 3 * * *'
+  workflow_dispatch: # Permette di avviarlo manualmente per test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Installa dipendenze
+        run: pip install requests
+
+      - name: Esegui script di filtraggio
+        run: python filter_epg.py
+
+      - name: Commit e Push dei cambiamenti
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add 02.epg
+          git commit -m "Aggiornamento automatico EPG: $(date +'%Y-%m-%d %H:%M')" || echo "Nessuna modifica da committare"
+          git push
