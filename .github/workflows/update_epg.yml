@@ -2,9 +2,9 @@ name: Aggiornamento Giornaliero EPG
 
 on:
   schedule:
-    # Esegue alle 03:00 UTC ogni giorno
+    # Esegue ogni giorno alle 03:00 UTC (le 04:00 o 05:00 in Italia a seconda dell'ora legale)
     - cron: '0 3 * * *'
-  workflow_dispatch: # Permette di avviarlo manualmente per test
+  workflow_dispatch: # Permette di avviarlo manualmente dalla scheda Actions
 
 jobs:
   build:
@@ -13,24 +13,24 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout del repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Configura Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Installa dipendenze
+      - name: Installa libreria requests
         run: pip install requests
 
-      - name: Esegui script di filtraggio
+      - name: Esegui lo script di filtraggio
         run: python filter_epg.py
 
-      - name: Commit e Push dei cambiamenti
+      - name: Carica i cambiamenti sul repo
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add 02.epg
-          git commit -m "Aggiornamento automatico EPG: $(date +'%Y-%m-%d %H:%M')" || echo "Nessuna modifica da committare"
+          git commit -m "Aggiornamento automatico EPG (La7 Cinema e Radio Italia)" || echo "Nessuna modifica"
           git push
