@@ -6,7 +6,6 @@ Canale5.it
 Italia1.it
 La7.it
 Tv8.it
-Nove.it
 20Mediaset.it
 Rai4.it
 Iris.it
@@ -17,7 +16,6 @@ Cielo.it
 TV2000.it
 La7Cinema.it
 LA5.it
-QVC.it
 Cine34.it
 Focus.it
 RTL102.5TV.it
