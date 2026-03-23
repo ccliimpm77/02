@@ -3,7 +3,7 @@ name: Aggiornamento Giornaliero EPG
 on:
   schedule:
     # Esegue ogni giorno alle 03:00 UTC (le 04:00 o 05:00 in Italia a seconda dell'ora legale)
-    - cron: '0 3 * * *'
+    - cron: '0 6 * * *'
   workflow_dispatch: # Permette di avviarlo manualmente dalla scheda Actions
 
 jobs:
