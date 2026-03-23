@@ -6,7 +6,7 @@ import sys
 # Configurazione
 EPG_URL = "http://epg-guide.com/dttsat.xml"
 CHANNELS_FILE = "canali.txt"
-OUTPUT_FILE = "02.epg"
+OUTPUT_FILE = "02.xmltv"
 
 def filter_epg():
     # 1. Leggi i canali dal file txt
