@@ -31,6 +31,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add 02.epg
+          git add 02.xmltv
           git commit -m "Aggiornamento automatico EPG (La7 Cinema e Radio Italia)" || echo "Nessuna modifica"
           git push
